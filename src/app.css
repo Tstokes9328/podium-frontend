@@ -14,7 +14,7 @@
 .loading-screen-logo {
     height: 20%;
     width: 75%;
-    background-image: url('./assets/podium-logo-2.png');
+    background-image: url('./assets/podium-logo.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

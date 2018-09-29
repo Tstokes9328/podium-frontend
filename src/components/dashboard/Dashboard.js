@@ -20,7 +20,7 @@ class Dashboard extends Component {
             reviews: [],
             accessToken: 'koOheljmQX',
             edit: false,
-            rating: 1
+            rating: 0
         }
     }
 
@@ -40,7 +40,10 @@ class Dashboard extends Component {
             this.setState({reviews: data});
             }).catch((error) => {
             console.log(error);
-            })
+            });
+            this.setState({
+                rating: 0
+            });
         };
 
         //Display filter settings
@@ -96,14 +99,17 @@ class Dashboard extends Component {
                     this.state.edit ?
                     <div className="dashboard-filter-open-container">
                         <h1>Rating:</h1>
-                        <div>
-                        <StarRatingComponent 
-                            name="rating" 
-                            starCount={5}
-                            value={this.state.rating}
-                            starColor="#0098e9"
-                            onStarClick={this.onStarClick}
-                        />
+                        <div className="filter-container-choice">
+                            <div className="rating-stars">
+                            <StarRatingComponent 
+                                name="rating" 
+                                starCount={5}
+                                value={this.state.rating}
+                                starColor="#0098e9"
+                                onStarClick={this.onStarClick}
+                            />
+                            </div>
+                            <button onClick={this.getReviews}>Clear</button>
                         </div>
                     </div>
                     :
