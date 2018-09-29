@@ -8,7 +8,7 @@ class ReviewPage extends Component {
         super()
 
         this.state = {
-            
+            accessToken: 'koOheljmQX'
         }
     }
 
@@ -19,7 +19,7 @@ class ReviewPage extends Component {
 
     //Methods
     getReviewData = () => {
-        const accessToken = 'koOheljmQX';
+        const accessToken = this.state.accessToken;
         const {id} = this.props.match.params;
         axios.get(`http://shakespeare.podium.co/api/reviews/${id}`, {'headers': {
             'Authorization': accessToken

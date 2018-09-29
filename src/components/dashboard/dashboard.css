@@ -10,27 +10,50 @@
 /* Dashboard Filter */
 .dashboard-filter-container {
     width: 100%;
-    height: 5vh;
+    height: 8vh;
     background: #f5f5f7;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     z-index: 2;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
 }
 
 .dashboard-filter-container > h1 {
     color: grey;
-    font-size: 16px;
-    margin-right: 2%;
+    font-size: 17px;
+    margin-right: 30%;
 }
+
 
 .dashboard-filter-container > span {
     color: grey;
-    font-size: 18px;
-    margin-right: 5%;
+    font-size: 22px;
+    margin-left: 5%;
 }
+
+.dashboard-filter-container > span:hover {
+    cursor: pointer;
+}
+
+.dashboard-filter-open-container {
+    width: 100%;
+    height: 15vh;
+    background: #f5f5f7;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-filter-open-container > h1 {
+    color: grey;
+    font-size: 20px;
+}
+
 
 /* Dashboard Reviews */
 .dashboard-reviews-container {
@@ -38,6 +61,7 @@
     height: 100vh;
     overflow: scroll;
 }
+
 
 .dashboard-reviews-container > a {
     text-decoration: none;
