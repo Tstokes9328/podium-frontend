@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 //Routes
 import router from './router';
@@ -39,7 +40,7 @@ class App extends Component {
 
   render() {
     //Font Awesome library method
-    library.add(faChevronDown, faChevronUp);
+    library.add(faChevronDown, faChevronUp, faArrowLeft);
 
     return (
       <div>
