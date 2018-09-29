@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 //Imported Packages
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRatingComponent from 'react-star-rating-component';
 
@@ -12,72 +12,71 @@ import './dashboard.css';
 //Components
 import Review from '../review/Review';
 
+//API Services
+import podiumAPI from '../../api/podiumApi';
+
 class Dashboard extends Component {
-    constructor(){
+    constructor() {
         super()
 
         this.state = {
             reviews: [],
-            accessToken: 'koOheljmQX',
             edit: false,
             rating: 0
         }
     }
 
     //LifeCycle Hooks
-    componentDidMount(){
+    componentDidMount() {
         this.getReviews();
     }
 
     //Methods
-        //Retrieves reviews from Podium API
-        getReviews = () => {
-            const accessToken = this.state.accessToken;
-            axios.get('http://shakespeare.podium.co/api/reviews', {'headers': {
-            'Authorization': accessToken
-            }}).then((response) => {
-            let {data} = response.data;
-            this.setState({reviews: data});
-            }).catch((error) => {
-            console.log(error);
+    //Retrieves reviews from Podium API
+    getReviews = () => {
+        podiumAPI.getReviews()
+            .then((response) => {
+                let { data } = response.data;
+                this.setState({ reviews: data });
+            })
+            .catch((error) => {
+                console.log(error);
             });
-            this.setState({
-                rating: 0
-            });
-        };
+        this.setState({
+            rating: 0
+        });
+    };
 
-        //Display filter settings
-        handleEditChange = () => {
-            this.setState({
-                edit: !this.state.edit
-            });
-        };
+    //Display filter settings
+    handleEditChange = () => {
+        this.setState({
+            edit: !this.state.edit
+        });
+    };
 
-        //Rating Filter method that fires when star is clicked
-        onStarClick = (nextValue) => {
-            this.setState({rating: nextValue});
-            const accessToken = this.state.accessToken;
-            axios.get('http://shakespeare.podium.co/api/reviews', {'headers': {
-            'Authorization': accessToken
-            }}).then((response) => {
+    //Rating Filter method that fires when star is clicked
+    onStarClick = (nextValue) => {
+        this.setState({ rating: nextValue });
+        podiumAPI.getReviews()
+            .then((response) => {
                 let filteredResults = response.data.data.filter((review) => {
                     return review.rating >= nextValue && review.rating < nextValue + 1;
                 });
-                this.setState({reviews: filteredResults});
+                this.setState({ reviews: filteredResults });
             }).catch((error) => {
-            console.log(error);
-            })
-        };
-
-        
+                console.log(error);
+            });
+    };
 
 
-    render(){
+
+
+    render() {
         //Map through the reviews to display as a list
-            //Display the Review component with props passed to component
+        //Display the Review component with props passed to component
         let reviews = this.state.reviews.map((review, index) => {
             return (
-                <Link to={`/review/${review.id}`} key={index}><Review id={review.id} author={review.author} publish_date={review.publish_date} rating={review.rating}/></Link>
+                <Link to={`/review/${review.id}`} key={index}><Review id={review.id} author={review.author} publish_date={review.publish_date} rating={review.rating} /></Link>
             )
         });
 
@@ -88,32 +87,32 @@ class Dashboard extends Component {
                     <span onClick={this.handleEditChange}>
                         {
                             this.state.edit ?
-                            <FontAwesomeIcon icon="chevron-up"/>
-                            :
-                            <FontAwesomeIcon icon="chevron-down"/>
+                                <FontAwesomeIcon icon="chevron-up" />
+                                :
+                                <FontAwesomeIcon icon="chevron-down" />
                         }
                     </span>
                 </div>
-                
+
                 {
                     this.state.edit ?
-                    <div className="dashboard-filter-open-container">
-                        <h1>Rating:</h1>
-                        <div className="filter-container-choice">
-                            <div className="rating-stars">
-                            <StarRatingComponent 
-                                name="rating" 
-                                starCount={5}
-                                value={this.state.rating}
-                                starColor="#0098e9"
-                                onStarClick={this.onStarClick}
-                            />
+                        <div className="dashboard-filter-open-container">
+                            <h1>Rating:</h1>
+                            <div className="filter-container-choice">
+                                <div className="rating-stars">
+                                    <StarRatingComponent
+                                        name="rating"
+                                        starCount={5}
+                                        value={this.state.rating}
+                                        starColor="#0098e9"
+                                        onStarClick={this.onStarClick}
+                                    />
+                                </div>
+                                <button onClick={this.getReviews}>Clear</button>
                             </div>
-                            <button onClick={this.getReviews}>Clear</button>
                         </div>
-                    </div>
-                    :
-                    <div></div>
+                        :
+                        <div></div>
                 }
 
                 <div className="dashboard-reviews-container">

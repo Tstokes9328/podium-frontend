@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
 
 //Imported Packages
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRatingComponent from 'react-star-rating-component';
 
 //Style Sheet
 import './reviewpage.css';
 
+//API Services
+import podiumAPI from '../../api/podiumApi';
+
 class ReviewPage extends Component {
     constructor(){
         super()
 
         this.state = {
-            accessToken: 'koOheljmQX',
             review: {}
         }
     }
@@ -25,11 +26,9 @@ class ReviewPage extends Component {
 
     //Methods
     getReviewData = () => {
-        const accessToken = this.state.accessToken;
         const {id} = this.props.match.params;
-        axios.get(`http://shakespeare.podium.co/api/reviews/${id}`, {'headers': {
-            'Authorization': accessToken
-            }}).then((response) => {
+        podiumAPI.getReviewByID(id)
+        .then((response) => {
                 this.setState({
                     review: response.data.data
                 })
