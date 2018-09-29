@@ -1,0 +1,44 @@
+.dashboard-container {
+    width: 100%;
+    height: 90vh;
+    background-color: #f5f5f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Dashboard Filter */
+.dashboard-filter-container {
+    width: 100%;
+    height: 5vh;
+    background: #f5f5f7;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.dashboard-filter-container > h1 {
+    color: grey;
+    font-size: 16px;
+    margin-right: 2%;
+}
+
+.dashboard-filter-container > span {
+    color: grey;
+    font-size: 18px;
+    margin-right: 5%;
+}
+
+/* Dashboard Reviews */
+.dashboard-reviews-container {
+    width: 95%;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.dashboard-reviews-container > a {
+    text-decoration: none;
+}
