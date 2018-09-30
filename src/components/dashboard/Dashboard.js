@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 //Imported Packages
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRatingComponent from 'react-star-rating-component';
@@ -28,12 +27,12 @@ class Dashboard extends Component {
 
     //LifeCycle Hooks
     componentDidMount() {
-        this.getReviews();
+        this.fetchReviews();
     }
 
     //Methods
     //Retrieves reviews from Podium API
-    getReviews = () => {
+    fetchReviews = () => {
         podiumAPI.getReviews()
             .then((response) => {
                 let { data } = response.data;
@@ -55,7 +54,7 @@ class Dashboard extends Component {
     };
 
     //Rating Filter method that fires when star is clicked
-    onStarClick = (nextValue) => {
+    filterReviews = (nextValue) => {
         this.setState({ rating: nextValue });
         podiumAPI.getReviews()
             .then((response) => {
@@ -105,10 +104,10 @@ class Dashboard extends Component {
                                         starCount={5}
                                         value={this.state.rating}
                                         starColor="#0098e9"
-                                        onStarClick={this.onStarClick}
+                                        onStarClick={this.filterReviews}
                                     />
                                 </div>
-                                <button onClick={this.getReviews}>Clear</button>
+                                <button onClick={this.fetchReviews}>Clear</button>
                             </div>
                         </div>
                         :

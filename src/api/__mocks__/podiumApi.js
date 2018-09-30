@@ -10,7 +10,7 @@ const podiumAPI = {
         }
     })),
 
-    getReviewById: () => new Promise((resolve, reject) => resolve({
+    getReviewByID: () => new Promise((resolve, reject) => resolve({
         data: {
             "data": {
                 "rating": 3.2,

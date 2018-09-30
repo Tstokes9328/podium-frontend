@@ -11,8 +11,8 @@ import './reviewpage.css';
 import podiumAPI from '../../api/podiumApi';
 
 class ReviewPage extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
 
         this.state = {
             review: {}
@@ -37,7 +37,7 @@ class ReviewPage extends Component {
             })
     };
 
-    returnPage = () => {
+    returnToPreviousPage = () => {
         this.props.history.goBack();
     }
 
@@ -51,7 +51,7 @@ class ReviewPage extends Component {
         return (
             <div className="review-page-container">
                 <div className="return-container">
-                    <div className="return-arrow-container" onClick={this.returnPage}>
+                    <div className="return-arrow-container" onClick={this.returnToPreviousPage}>
                         <FontAwesomeIcon icon='arrow-left'/>
                     </div>
                     <p>Reviews</p>
