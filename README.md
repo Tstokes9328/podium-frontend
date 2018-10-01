@@ -1,4 +1,4 @@
-<img src="./src/assets/podium-logo.png" width="250" align="right">
+<img src="./src/assets/podium-logo.png" width="200px">
 
 # PODIUM FRONT END CHALLENGE
 
