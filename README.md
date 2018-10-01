@@ -1,3 +1,5 @@
+<img src="./src/assets/podium-logo.png" align="right">
+
 # PODIUM FRONT END CHALLENGE
 
 ## PROJECT SUMMARY
@@ -10,3 +12,4 @@ This project is a front end code challenge made for Podium. This application was
 2. `cd` into the project directory.
 3. Run `npm install` to install current dependencies.
 4. Run `npm start` (the app should immediately start).
+
