@@ -1,5 +1,9 @@
 # PODIUM FRONTEND CHALLENGE
 
+## PROJECT SUMMARY
+
+This project is a front end code challenge made for Podium.
+
 ## SETUP
 
 1. `fork` and `clone` this repository.
