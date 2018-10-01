@@ -1,5 +1,6 @@
 <img src="./src/assets/podium-logo.png" width="200px" align="left">
 
+
 # PODIUM FRONT END CHALLENGE
 
 ## PROJECT SUMMARY
