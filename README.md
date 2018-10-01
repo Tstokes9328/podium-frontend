@@ -2,7 +2,7 @@
 
 ## PROJECT SUMMARY
 
-This project is a front end code challenge made for Podium. This project was designed to access Podium's API through http requests to display information based on reviews.
+This project is a front end code challenge made for Podium. This application was created using `React` for the framework. The purpose of this application is to make `HTTP` requests to the Podium API to fetch reviews.
 
 ## SETUP
 
