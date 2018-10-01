@@ -10,7 +10,6 @@ describe('Component: ReviewPage', () => {
     
     it('Should render without exploding', () => {
         expect(wrapper.length).toEqual(1);
-        console.log(wrapper.state())
     });
 
     //Test .getReviewData() method
