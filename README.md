@@ -1,8 +1,8 @@
-# PODIUM FRONTEND CHALLENGE
+# PODIUM FRONT END CHALLENGE
 
 ## PROJECT SUMMARY
 
-This project is a front end code challenge made for Podium.
+This project is a front end code challenge made for Podium. This project was designed to access Podium's API through http requests to display information based on reviews.
 
 ## SETUP
 
